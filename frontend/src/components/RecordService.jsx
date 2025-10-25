@@ -52,7 +52,7 @@ const RecordService = () => {
       reset();
       setOpen(false);
       setBackendError("");
-      toast.success('New Category Added')
+      toast.success('New Service Recorded')
     } catch (err) {
       const errorMessage = err.response?.data?.message || "Something went wrong";
       setBackendError(errorMessage);
