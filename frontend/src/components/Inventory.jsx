@@ -12,7 +12,7 @@ const Inventory = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/category/', {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/category/`, {
           withCredentials: true,
         });
         console.log("API Response:", res.data);
@@ -29,7 +29,7 @@ const Inventory = () => {
   const handleDelete = async (id) => {
     try {
       await axios.post(
-        `http://localhost:3000/api/category/deleteCategory/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/category/deleteCategory/${id}`,
         {},
         { withCredentials: true }
       );

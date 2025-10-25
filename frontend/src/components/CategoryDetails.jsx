@@ -9,7 +9,7 @@ const CategoryDetails =  ({ attributes = [], categoryName }) => {
   useEffect(()=> {
     const fetchProducts = async ()=> {
       try{
-        const res = await axios.get(`http://localhost:3000/api/product/${categoryName}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/product/${categoryName}`);
         const productData = res.data.data || [];
         console.log(res)
         

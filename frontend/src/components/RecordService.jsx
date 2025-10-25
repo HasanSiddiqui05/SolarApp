@@ -46,7 +46,7 @@ const RecordService = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/service/recordService", data);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/service/recordService`, data);
       console.log("Service recorded:", res.data);
       reset();
       setOpen(false);

@@ -44,7 +44,7 @@ const AddCategory = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:3000/api/category/addCategory", payload);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/category/addCategory`, payload);
       console.log("Category added:", res.data);
 
       reset();

@@ -62,7 +62,7 @@ const handleAddProduct = (product) => {
         unitPrice: item.price
       }));
 
-      await axios.post("http://localhost:3000/api/sales/recordSale", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/sales/recordSale`, {
         products,
         totalAmount: total
       });

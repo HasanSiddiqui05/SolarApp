@@ -21,8 +21,8 @@ const InventoryLogs = ({ type = "sales" }) => {
   // Endpoint dynamically changes based on type
   const endpoint =
     type === "sales"
-      ? "http://localhost:3000/api/sales/getSales"
-      : "http://localhost:3000/api/services/getServices";
+      ? `${import.meta.env.VITE_API_URL}/api/sales/getSales`
+      : `${import.meta.env.VITE_API_URL}/api/services/getServices`;
 
   // Fetch data
   useEffect(() => {
@@ -46,7 +46,7 @@ const InventoryLogs = ({ type = "sales" }) => {
     if (type !== "sales") return;
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/sales/undoSale/${id}`
+        `${import.meta.env.VITE_API_URL}/api/sales/undoSale/${id}`
       );
       if (res.data.success) {
         setRecords((prev) => prev.filter((r) => r._id !== id));

@@ -15,7 +15,7 @@ const SearchBox = ({ onAddProduct }) => {
     const fetchResults = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:3000/api/sales/search", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/sales/search`, {
           params: { query },
         });
         setResults(res.data.products || []);

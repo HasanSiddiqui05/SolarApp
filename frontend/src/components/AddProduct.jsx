@@ -35,7 +35,7 @@ const AddProduct = ({ attributes = [], categoryName }) => {
       setErrorMessage("");
       setSuccessMessage("");
 
-      const res = await axios.post("http://localhost:3000/api/product/addProduct", {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/product/addProduct`, {
         categoryName,
         attributes: data
       });

@@ -53,7 +53,7 @@ const UpdateCategory = ({ _id, name, image, attributes = [] }) => {
 
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/category/updateCategory/${_id}`,
+        `${import.meta.env.VITE_API_URL}/api/category/updateCategory/${_id}`,
         payload
       );
       console.log("Category updated:", res.data);
