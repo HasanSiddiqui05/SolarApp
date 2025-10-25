@@ -7,10 +7,21 @@ import ProductRoutes from './Routes/productRoutes.js'
 import SalesRoutes from './Routes/salesRoutes.js'
 import ServiceRoutes from './Routes/serviceRoutes.js'
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://solar-app-theta.vercel.app"
+];
+
 dotenv.config()
 const app = express()
 app.use(cors({
-  origin: ["https://solar-app-theta.vercel.app"],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
