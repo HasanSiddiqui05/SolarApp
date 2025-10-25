@@ -10,7 +10,7 @@ import ServiceRoutes from './Routes/serviceRoutes.js'
 dotenv.config()
 const app = express()
 app.use(cors({
-  origin: ["https://solarapp.vercel.app"],
+  origin: ["https://solar-app-theta.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
