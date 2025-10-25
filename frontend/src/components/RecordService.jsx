@@ -47,7 +47,7 @@ const RecordService = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/service/recordService`, data);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/services/recordService`, data);
       console.log("Service recorded:", res.data);
       reset();
       setOpen(false);
@@ -149,7 +149,7 @@ const RecordService = () => {
 
           <button
             type='submit'
-            className='w-[90%] px-4 py-2 bg-slate-500 text-white rounded-lg hover:bg-slate-700 mt-2'
+            className='w-[90%] px-4 py-2 bg-slate-500 text-white rounded-lg hover:bg-slate-700 mt-2 cursor-pointer'
           >
             Record Service
           </button>
