@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import CategoryDetails from "./CategoryDetails"
 import { Pencil, Trash2 } from "lucide-react"
 import AddProduct from '@/components/AddProduct'
-import UpdateCategory from "./updateCategory"
+import UpdateCategory from "./UpdateCategory"
 
 const InventoryCard = ({ _id, name, image, stock, attributes = [], onDelete }) => {
   const [details, showDetails] = useState(false)

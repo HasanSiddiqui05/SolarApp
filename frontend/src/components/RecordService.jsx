@@ -11,6 +11,7 @@ import toast from 'react-hot-toast'
 
 const serviceOptions = [
   "System design and installation",
+  "Solar Structure Welding",
   "Maintenance and repair",
   "Site survey",
   "After-sales service and warranty support"
