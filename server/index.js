@@ -9,7 +9,11 @@ import ServiceRoutes from './Routes/serviceRoutes.js'
 
 dotenv.config()
 const app = express()
-app.use(cors({ origin: "http://localhost:5173", credentials: true }))
+app.use(cors({
+  origin: ["https://solarapp.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json())
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
