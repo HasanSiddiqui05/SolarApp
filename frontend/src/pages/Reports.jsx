@@ -29,7 +29,7 @@ const Reports = () => {
 
     const fetchSaleData = async (month = null) => {
         try{
-            const res = await axios.get("http://localhost:3000/api/sales/reportData", {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/sales/reportData`, {
                 params: {month}
             });
             if (res.data.success) {
