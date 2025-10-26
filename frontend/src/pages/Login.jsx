@@ -1,34 +1,37 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import { useAuth } from '../context/AuthContext'; 
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
+import { RiLoader5Line } from "react-icons/ri";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useAuth(); // ✅ get login() function from AuthContext
+  const { login } = useAuth();
 
-  const [user, setUser] = useState('');
-  const [pass, setPass] = useState('');
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
+  const [loading, setLoading] = useState(false); 
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
     if (!user || !pass) {
-      toast.error('Fill both fields');
+      toast.error("Fill both fields");
       return;
     }
 
-    // ✅ use login() from AuthContext
+    setLoading(true); 
     const result = await login(user, pass);
+    setLoading(false);
 
     if (result.success) {
-      toast.success('Login successful!');
-      navigate('/Homepage');
-      setUser('');
-      setPass('');
+      toast.success("Login successful!");
+      navigate("/Homepage");
+      setUser("");
+      setPass("");
     } else {
-      toast.error(result.message || 'Invalid credentials');
-      setPass('');
+      toast.error(result.message || "Invalid credentials");
+      setPass("");
     }
   };
 
@@ -60,9 +63,16 @@ const Login = () => {
 
         <button
           type="submit"
-          className="bg-white/70 hover:bg-white text-gray-800 font-semibold py-2 rounded-md transition cursor-pointer mt-7"
+          disabled={loading} 
+          className={`bg-white/70 hover:bg-white text-gray-800 font-semibold py-2 rounded-md transition cursor-pointer mt-7 flex justify-center items-center ${
+            loading ? "opacity-70 cursor-not-allowed" : ""
+          }`}
         >
-          Login
+          {loading ? (
+            <RiLoader5Line className="animate-spin" size={25} />
+          ) : (
+            "Login"
+          )}
         </button>
       </form>
     </div>
